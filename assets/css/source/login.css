@@ -1,0 +1,79 @@
+/*
+	Theme Name: Unimed Noticias
+	Description: Case desenvolvido para o processo seletivo da Unimed Volta Redonda
+	Author: Jhonatan Müller
+	Version: 1.0
+*/
+
+/* 
+=================================== Global =================================== 
+*/
+body {
+	background: #0B3B0B;
+	padding: 40px 0  40px 0;
+}
+
+/* 
+=================================== Container =================================== 
+*/
+.container {
+	max-width: 360px;
+}
+	
+	/*
+	========== Logotipo ========== 
+	*/
+	#logotipo {
+		max-width: 300px;
+		margin: auto;
+		margin-left: 70px;
+		margin-bottom: 25px;
+	}
+	#logotipo img {
+		width: 65%;
+	}
+
+	/*
+	========== Formulário de login ========== 
+	*/
+	.form-signin {
+		max-width: 330px;
+		margin: 0 auto;
+		padding: 15px;
+		padding-top: 5px;
+		padding-bottom: 20px;
+		background: #FFF;
+		border-radius: 3px;
+	}
+	.form-signin .form-signin-heading,
+	.form-signin .checkbox {
+		margin-bottom: 10px;
+	}
+	.form-signin .checkbox {
+		font-weight: normal;
+	}
+	.form-signin .form-control {
+		height: auto;
+		font-size: 16px;
+		padding: 10px;
+		position: relative;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.form-signin .form-control:focus {
+		z-index: 2;
+	}
+	.form-signin input[type="text"] {
+		margin-bottom: -1px;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.form-signin input[type="password"] {
+		margin-bottom: 10px;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+	.form-group {
+		margin-bottom: 0;
+	}
