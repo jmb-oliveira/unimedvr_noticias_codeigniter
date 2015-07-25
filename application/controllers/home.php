@@ -36,7 +36,7 @@ class Home extends CI_Controller {
 		
 		// Nao permite página menor que 0 e permite somente inteiros
 		if($de_paginacao < 0 OR !is_numeric($de_paginacao)){
-			redirect('admin/home', 'redirect');			
+			redirect('home', 'redirect');			
 		}
 	
 		// Biblioteca da paginação
@@ -52,7 +52,7 @@ class Home extends CI_Controller {
 	
 		// Nao permite pagina que nao existe (maior do que existe)
 		if($de_paginacao > $config_paginacao['total_rows']){
-			redirect('admin/home', 'redirect');			
+			redirect('home', 'redirect');			
 		}
 		
 		// Estilo paginacao
