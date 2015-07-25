@@ -12,7 +12,7 @@ class Model_login extends CI_Model
 	{
 		return $this->db->query("SELECT id_usuario
 								 FROM unmd_usuarios
-								 WHERE (login = ?) AND (senha = ?)",
+								 WHERE (login = ?) AND (senha = ?) AND (habilitado = 1)",
 								 array($this->input->post('login'), sha1($this->input->post('senha'))))
 						->row(0);
 	}
@@ -21,7 +21,7 @@ class Model_login extends CI_Model
 	{
 		return $this->db->query("SELECT id_usuario, dusuario, acesso
 								FROM unmd_usuarios
-								WHERE (id_usuario=?) AND (senha=?)",
+								WHERE (id_usuario=?) AND (senha=?) AND (habilitado = 1)",
 								array($this->session->userdata('useradmid'), sha1($this->session->userdata('useradmsenha'))))
 						->row(0);
 	}

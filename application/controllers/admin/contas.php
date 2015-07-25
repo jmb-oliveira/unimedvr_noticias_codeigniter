@@ -91,10 +91,10 @@ class Contas extends CI_Controller {
 				array('field' => 'nome', 'rules' => 'required|sanitizeHTML|min_length[3]|max_length[60]'),
 				array('field' => 'email', 'rules' => 'required|valid_email'),
 				array('field' => 'usuario', 'rules' => 'required|sanitizeHTML|min_length[3]|max_length[60]'),
-				array('field' => 'acesso', 'label' => 'nível de acesso', 'rules' => 'required'),
+				array('field' => 'acesso', 'label' => 'nível de acesso', 'rules' => 'required|strtonumeric'),
 				array('field' => 'senha', 'rules' => 'required|min_length[6]|max_length[15]'),
 				array('field' => 'confirmar_senha', 'label' => 'confirmar senha', 'rules' => 'required|matches[senha]'),
-				array('field' => 'habilitada', 'label' => 'conta habilitada', 'rules' => 'required')
+				array('field' => 'habilitada', 'label' => 'conta habilitada', 'rules' => 'required|strtonumeric')
 		);
 		$this->form_validation->set_rules($rules);
 		
@@ -125,10 +125,10 @@ class Contas extends CI_Controller {
 				array('field' => 'nome', 'rules' => 'required|sanitizeHTML|min_length[3]|max_length[60]'),
 				array('field' => 'email', 'rules' => 'required|valid_email'),
 				array('field' => 'usuario', 'rules' => 'required|sanitizeHTML|min_length[3]|max_length[60]'),
-				array('field' => 'acesso', 'label' => 'nível de acesso', 'rules' => 'required'),
+				array('field' => 'acesso', 'label' => 'nível de acesso', 'rules' => 'required|strtonumeric'),
 				array('field' => 'senha', 'rules' => 'required|min_length[6]|max_length[15]'),
 				array('field' => 'confirmar_senha', 'label' => 'confirmar senha', 'rules' => 'required|matches[senha]'),
-				array('field' => 'habilitada', 'label' => 'conta habilitada', 'rules' => 'required')
+				array('field' => 'habilitada', 'label' => 'conta habilitada', 'rules' => 'required|strtonumeric')
 		);
 		$this->form_validation->set_rules($rules);
 		

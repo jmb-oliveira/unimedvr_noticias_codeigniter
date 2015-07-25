@@ -109,7 +109,7 @@
 				
 					<div class="form-group <?php echo set_obg('habilitada')?>">
 						<label>Conta Habilitada</label>
-						<?php echo form_dropdown('habilitada', array('' => '', '1' => 'Sim', '2' => 'Não'), set_value('habilitada', $conta->habilitado), 'class="form-control"')?>
+						<?php echo form_dropdown('habilitada', array('' => '', '1' => 'Sim', '0' => 'Não'), set_value('habilitada', $conta->habilitado), 'class="form-control"')?>
 					</div>
 					
 				</div>
