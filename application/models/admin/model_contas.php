@@ -78,12 +78,4 @@ class Model_contas extends CI_Model
 			return TRUE;
 		}
 	}
-
-	function getLoginConta($id_conta = null)
-	{
-		return $this->db->select('login')
-						->get_where('unmd_usuarios')						
-						->row(0)
-						->login;
-	}
 }

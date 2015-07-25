@@ -150,7 +150,7 @@ class Contas extends CI_Controller {
 	
 	function remover($id_conta = NULL)
 	{
-		if(!$dados['conta'] = $this->Model_contas->getConta((int)$id_conta))
+		if(!$conta = $this->Model_contas->getConta((int)$id_conta))
 			show_404();
 
 		// Bloquear remoção da própria conta
@@ -161,7 +161,7 @@ class Contas extends CI_Controller {
 
 		
 		if($this->Model_contas->tryDeleteConta($id_conta)){
-			$this->Model_login->addLog('Removeu a Conta do usuário '. $this->Model_contas->getLoginConta($id_conta));
+			$this->Model_login->addLog('Removeu a Conta do usuário '. $conta->login);
 			$this->session->set_flashdata('removed-ok', TRUE);
 		} else {			
 			$this->session->set_flashdata('removed-error', TRUE);
