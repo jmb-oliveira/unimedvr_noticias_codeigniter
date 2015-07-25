@@ -24,7 +24,7 @@
 						
 						<li><a href="<?php echo base_url('home')?>" class="btn btn-success">Notícias</a></li>
 						<li><a href="<?php echo base_url('home')?>" class="btn-collapse">Notícias</a></li>
-						<li><a href="'. base_url('categorias') .'">Categorias</a></li>
+						<li><a href="<?php echo base_url('categorias')?>">Categorias</a></li>
 
 						<?php
 							if(!$usuario){
