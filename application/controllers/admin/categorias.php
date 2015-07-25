@@ -74,7 +74,7 @@ class Categorias extends CI_Controller {
 		}
 	
 		$dados['usuario'] = $this->_usuario;
-		$this->load->view('admin/adm_categorias_listar', $dados);
+		$this->load->view('admin/categorias_listar', $dados);
 	}
 	
 	function inserir()
@@ -101,7 +101,7 @@ class Categorias extends CI_Controller {
 		}
 		
 		$dados['usuario'] = $this->_usuario;
-		$this->load->view('admin/adm_categorias_inserir', $dados);
+		$this->load->view('admin/categorias_inserir', $dados);
 	}
 	
 	function editar($id_categoria = NULL)
@@ -132,7 +132,7 @@ class Categorias extends CI_Controller {
 		}
 		
 		$dados['usuario'] = $this->_usuario;
-		$this->load->view('admin/adm_categorias_editar', $dados);
+		$this->load->view('admin/categorias_editar', $dados);
 	}
 	
 	function remover($id_categoria = NULL)
