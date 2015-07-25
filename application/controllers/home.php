@@ -71,7 +71,7 @@ class Home extends CI_Controller {
 		{
 			$dados['lista'] .=
 						'<div class="news-box">
-							<h2><a href="'. base_url('noticia/detalhes/' . $noticia->id_noticia) .'">'. $noticia->titulo .'</a></h2>
+							<h2><a href="'. base_url('noticia/detalhes/' . $noticia->id_noticia) .'" title="Ver notícia completa">'. $noticia->titulo .'</a></h2>
 							<p class="news-datetime">Em '. date('d/m/Y \à\s H:i', $noticia->publicada_em) .'</p>
 							<p>'. limita_caracteres($noticia->texto, 600, FALSE) .'</p>
 						 </div>';
