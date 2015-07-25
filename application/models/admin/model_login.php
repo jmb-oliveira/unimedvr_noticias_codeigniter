@@ -25,4 +25,9 @@ class Model_login extends CI_Model
 								array($this->session->userdata('useradmid'), sha1($this->session->userdata('useradmsenha'))))
 						->row(0);
 	}
+
+	function addLog($log_message)
+	{
+		$this->db->query('INSERT INTO unmd_logs VALUES (NULL,?,?,UNIX_TIMESTAMP())', array($log_message, $this->session->userdata('useradmid')));
+	}
 }

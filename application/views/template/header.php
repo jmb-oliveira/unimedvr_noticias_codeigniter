@@ -23,7 +23,8 @@
 					<ul class="nav navbar-nav" id="mainmenu">						
 						
 						<li><a href="<?php echo base_url('home')?>" class="btn btn-success">Notícias</a></li>
-						<li><a href="<?php echo base_url('home')?>" class="btn-collapse">Notícias</a></li>											
+						<li><a href="<?php echo base_url('home')?>" class="btn-collapse">Notícias</a></li>
+						<li><a href="'. base_url('categorias') .'">Categorias</a></li>
 
 						<?php
 							if(!$usuario){
@@ -38,7 +39,7 @@
 											<li><a href="'. base_url('admin/categorias') .'">Categorias</a></li>';
 
 											if($usuario->acesso == 2){
-												echo '<li><a href="'. base_url('admin/usuarios') .'">Usuários</a></li>';
+												echo '<li><a href="'. base_url('admin/contas') .'">Contas de Usuários</a></li>';
 											}
 
 								echo 	'</ul>

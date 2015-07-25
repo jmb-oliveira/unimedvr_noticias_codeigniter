@@ -11,26 +11,26 @@ class Model_noticias extends CI_Model
 	function countNoticias($busca)
 	{
 		if($busca == 'sem_busca')
-			return $this->db->query('SELECT COUNT(id_noticia) as cont
-									 FROM unmd_noticias
-									 WHERE removed_on IS NULL')->row(0)->cont;
+			return $this->db->where('removed_on IS NULL')
+							->count_all_results('unmd_noticias');
 		else
-			return $this->db->query('SELECT COUNT(id_noticia) as cont
-									 FROM unmd_noticias
-									 WHERE (titulo LIKE \'%'.$this->db->escape_like_str($busca).'%\')
-									 AND removed_on IS NULL')->row(0)->cont;
+			return $this->db->where('removed_on IS NULL')
+							->like('titulo', $busca)
+							->count_all_results('unmd_noticias');
 	}
-	function getNoticias($busca, $inicio, $limite)
+	function getNoticias($busca, $inicio, $offset)
 	{
-		$sql = 'SELECT id_noticia, titulo, texto, publicada_em
-				FROM unmd_noticias
-				WHERE removed_on IS NULL';
+		$query = $this->db->select(array('id_noticia', 'titulo', 'texto', 'publicada_em'))
+				 		  ->where('removed_on IS NULL');						 
 			
 		if($busca != 'sem_busca')
-			$sql .= ' AND (titulo LIKE \'%'.$this->db->escape_like_str($busca).'%\')';
-			
-		$sql .= ' ORDER BY publicada_em DESC LIMIT ?,?';
+			$query->like('titulo', $busca);
 
-		return $this->db->query($sql, array($inicio, $limite))->result();
+		$result = $query->limit($offset, $inicio)
+			  ->order_by('publicada_em', 'DESC')
+			  ->get('unmd_noticias')
+			  ->result();
+
+		return $result;
 	}
 }
