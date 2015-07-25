@@ -84,7 +84,7 @@
 			$('.remover').click(function(){
 				var id = $(this).parent().attr('data-id-registro');
 
-				bootbox.confirm('Você está prestes a remover um registro.\n\nConfirma operação?', function(r){
+				bootbox.confirm('Você está prestes a remover um registro.<br/><br/><b>Todas as notícias dessa categoria ficarão invisíveis para os leitores.</b><br/><br/>Confirma operação?', function(r){
 					if(r){
 						location.href = "<?php echo base_url('admin/categorias/remover')?>/" + id;
 					}

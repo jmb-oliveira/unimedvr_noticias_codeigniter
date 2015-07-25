@@ -88,7 +88,6 @@
 
 	<!-- Footer -->
 	<?php include APPPATH . "views/template/footer.php"; ?>
-	<script src="<?php echo base_url('assets/js/minify/password-validation.js')?>"></script>
 	
 </body>
 </html>
