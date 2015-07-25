@@ -376,6 +376,10 @@ body > .container {
 	.total-registros {
 		margin-top: -10px;
 	}
+	h3 a, h3 a:hover {
+		color: #045a04;
+		text-decoration: none;
+	}
 	
 	/*
 	========== Galeria de imagens uploader ==========
