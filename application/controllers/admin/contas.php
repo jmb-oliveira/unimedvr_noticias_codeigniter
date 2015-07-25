@@ -24,7 +24,7 @@ class Contas extends CI_Controller {
 		$this->listar();
 	}
 	
-	function listar($busca = 'sem_busca', $de_paginacao = '0')
+	function listar($de_paginacao = '0')
 	{	
 		// Nao permite página menor que 0 e permite somente inteiros
 		if($de_paginacao < 0 OR !is_numeric($de_paginacao)){
@@ -36,9 +36,9 @@ class Contas extends CI_Controller {
 	
 		// Paginação
 		$config_paginacao['base_url'] 	= site_url('admin/contas/listar');		
-		$config_paginacao['total_rows'] = $this->Model_contas->countContas($busca);		
+		$config_paginacao['total_rows'] = $this->Model_contas->countContas();		
 		$config_paginacao['per_page'] = 10;
-		$config_paginacao['uri_segment'] = 5;
+		$config_paginacao['uri_segment'] = 4;
 		$dados['total_rows'] = $config_paginacao['total_rows'];
 	
 		// Nao permite pagina que nao existe (maior do que existe)
