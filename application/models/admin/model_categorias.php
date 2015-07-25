@@ -16,6 +16,7 @@ class Model_categorias extends CI_Model
 	function getCategorias($inicio, $offset)
 	{		
 		return $this->db->where('removed_on IS NULL')
+						->order_by('dcategoria')
 						->limit($offset, $inicio)
 						->get('unmd_categorias')						
 						->result();

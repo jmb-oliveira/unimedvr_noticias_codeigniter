@@ -16,7 +16,8 @@ class Model_contas extends CI_Model
 	function getContas($inicio, $offset)
 	{		
 		return $this->db->where('removed_on IS NULL')
-						->limit($offset, $inicio)
+						->order_by('dusuario')
+						->limit($offset, $inicio)						
 						->get('unmd_usuarios')						
 						->result();
 	}
