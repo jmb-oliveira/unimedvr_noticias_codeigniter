@@ -1,0 +1,116 @@
+/*-------------------------
+    General Styles
+--------------------------*/
+#upload a, #upload a:visited  {
+    outline: none;
+    color: #389dc1;
+}
+#upload a:hover {
+    text-decoration: none;
+}
+
+
+
+/*----------------------------
+    The file upload form
+-----------------------------*/
+.both {
+    clear: both;
+}
+
+#drop {
+    max-width: 390px;
+    color: #7f858a;
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+    padding: 50px 50px;	
+    margin-bottom: 30px;
+    border-radius: 3px;
+    border: 6px dashed #CCC;
+    background-color: #FFF;
+}
+#drop img { 
+    margin-top: 20px;
+}
+#drop a {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+    display: block;
+    cursor: pointer;
+    margin-top: 30px;
+    padding: 15px 26px 17px 26px;
+    border-radius: 3px;
+    background-color: #3498DB;
+}
+#drop a:hover {
+    background-color: #2980B9;
+}
+#drop input {
+    display: none;
+}
+#upload ul {
+    max-width: 420px;
+    list-style: none;
+    margin: auto;
+}
+#lista-imagens {
+    max-width: 420px;
+	margin: auto;
+}
+#upload ul li {
+    max-width: 400px;
+    color: #333;
+    height: 60px;
+    padding: 15px;
+	margin-left: -30px;
+    position: relative;
+    background-color: #FAFAFA;
+    border-top: 1px solid #CCC;
+}
+#upload ul li:last-child {
+    border-bottom: 1px solid #CCC;
+}
+
+#upload ul li:nth-child(odd) {
+    background-color: #FFF;
+}
+#upload ul li p {
+    width: 144px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #9D9D9D;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 100px;
+}
+#upload ul li i {
+    font-weight: normal;
+    font-style: normal;
+    color: #7f7f7f;
+    display: block;
+}
+#upload ul li canvas {
+    top: 15px;
+    left: 32px;
+    position: absolute;
+}
+#upload ul li span {
+    width: 15px;
+    height: 12px;
+    background: url('../img/icons.png') no-repeat;
+    position: absolute;
+    top: 20px;
+    right: 33px;
+    cursor: pointer;
+}
+#upload ul li.working span {
+    height: 16px;
+    background-position: 0 -12px;
+}
+#upload ul li.error p {
+    color: red;
+}

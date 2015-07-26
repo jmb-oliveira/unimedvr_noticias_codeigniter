@@ -4,7 +4,7 @@
 	
 	<?php include APPPATH . "views/template/config.php"; ?>
 
-	<title>Categorias - Unimed Volta Redonda</title>
+	<title>Notícias - Unimed Volta Redonda</title>
 	
 </head>
 
@@ -18,7 +18,7 @@
 	<section  class="container">
 		
 		<div id="titulo_principal"> 
-			<h1>Categorias</h1>
+			<h1>Notícias</h1>
 			<div class="badge" data-toggle="tooltip" data-placement="right" title="Total de registros"><?php echo $total_rows?></div>
 		</div>	
 			
@@ -31,7 +31,7 @@
 			
 				<!-- Botões -->
 				<div class="col-md-7 col-xs-6 pull-left">
-					<a href="<?php echo base_url('admin/categorias/inserir')?>" class="btn btn-primary">Inserir</a>
+					<a href="<?php echo base_url('admin/noticias/inserir')?>" class="btn btn-primary">Inserir</a>
 				</div>						
 			
 			</div>
@@ -52,7 +52,7 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr class="table-title">
-						<th>Categoria</th>
+						<th>Notícia</th>
 						<th class="col-md-2 text-center">Visível em Desktop</th>
 						<th class="col-md-2 text-center">Visível em Mobile</th>						
 						<th class="col-md-1 col-xs-2 text-center">::</th>
@@ -86,7 +86,7 @@
 
 				bootbox.confirm('Você está prestes a remover um registro.\n\nConfirma operação?', function(r){
 					if(r){
-						location.href = "<?php echo base_url('admin/categorias/remover')?>/" + id;
+						location.href = "<?php echo base_url('admin/noticias/remover')?>/" + id;
 					}
 				});
 			});
