@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '/unimed_noticias/';
+$config['base_url']	= '/unimedvr_noticias/';
 
 /*
 |--------------------------------------------------------------------------
