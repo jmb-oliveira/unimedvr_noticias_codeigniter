@@ -8,20 +8,37 @@ class Model_categorias extends CI_Model
 		parent::__construct();
 	}
 	
-	function countCategorias()
-	{		
-		return $this->db->where('removed_on IS NULL')->count_all_results('unmd_categorias');		
+	function countCategorias($is_mobile)
+	{
+		$query = $this->db->where('removed_on IS NULL');
+
+		if($is_mobile){
+			$query->where('visivel_mobile', 1);
+		} else {
+			$query->where('visivel_desktop', 1);
+		}
+
+		$result = $query->count_all_results('unmd_categorias');
+		return $result;		
 	}
 
-	function getCategorias($inicio, $offset)
+	function getCategorias($is_mobile, $inicio, $offset)
 	{		
-		return $this->db->select(array('id_categoria', 'dcategoria'))
+		$query =  $this->db->select(array('id_categoria', 'dcategoria'))
 						->from('unmd_categorias')
-						->where('removed_on IS NULL')
-						->order_by('dcategoria', 'ASC')
+						->where('removed_on IS NULL');
+
+		if($is_mobile){
+			$query->where('visivel_mobile', 1);
+		} else {
+			$query->where('visivel_desktop', 1);
+		}
+						
+		$result = $query->order_by('dcategoria', 'ASC')
 						->limit($offset, $inicio)
 						->get()						
 						->result();
+		return $result;
 	}
 
 	function getCategoria($id_categoria)

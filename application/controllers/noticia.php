@@ -32,6 +32,16 @@ class Noticia extends CI_Controller {
 
 		$dados['noticia'] = $noticia;
 
+		$this->load->library('user_agent');		
+
+		if($this->agent->is_mobile() && $noticia->visivel_mobile == '0'){
+			show_404();
+		
+		} elseif(!$this->agent->is_mobile() && $noticia->visivel_desktop == '0'){
+			show_404();
+		}
+
+
 		// Galeria de Imagens
 		$dados['imagens'] = '';
 		foreach($this->Model_noticias->getNoticiaImagens($id_noticia) as $img){

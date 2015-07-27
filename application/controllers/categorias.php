@@ -28,13 +28,17 @@ class Categorias extends CI_Controller {
 		if($de_paginacao < 0 OR !is_numeric($de_paginacao)){
 			redirect('categorias', 'redirect');			
 		}
+
+
+		$this->load->library('user_agent');
+		$is_mobile = $this->agent->is_mobile();
 	
 		// Biblioteca da paginação
 		$this->load->library('pagination');
 	
 		// Paginação
 		$config_paginacao['base_url'] 	= site_url('categorias/listar');		
-		$config_paginacao['total_rows'] = $this->Model_categorias->countCategorias();		
+		$config_paginacao['total_rows'] = $this->Model_categorias->countCategorias($is_mobile);		
 		$config_paginacao['per_page'] = 10;
 		$config_paginacao['uri_segment'] = 3;
 		$dados['total_rows'] = $config_paginacao['total_rows'];
@@ -52,7 +56,7 @@ class Categorias extends CI_Controller {
 	
 		// Listagem de dados
 		$dados['lista'] = '';
-		foreach($this->Model_categorias->getCategorias((int)$de_paginacao, $config_paginacao['per_page']) as $categoria)
+		foreach($this->Model_categorias->getCategorias($is_mobile, (int)$de_paginacao, $config_paginacao['per_page']) as $categoria)
 		{
 			$dados['lista'] .=
 					'<h3><a href="'. base_url('categorias/detalhar/'. $categoria->id_categoria) .'" title="Ver notícias desta categoria">&bull; '.$categoria->dcategoria.'</a></h3>';
