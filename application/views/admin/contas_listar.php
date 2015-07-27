@@ -52,28 +52,34 @@
 			}
 			?>
 
-			<!-- Grid -->
-			<table class="table table-bordered">
-				<thead>
-					<tr class="table-title">
-						<th class="col-md-4">Nome</th>
-						<th class="col-md-2">Usuário</th>
-						<th class="col-md-2">Nível de Acesso</th>
-						<th class="col-md-1 text-center">Habilitado</th>
-						<th class="col-md-1 col-xs-2 text-center">::</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php echo $lista?>
-				</tbody>
-			</table>			
-			
-			<!-- Paginação -->
-			<div class="text-center col-md-12">
-				<ul class="pagination">
-					<?php echo $html_paginacao?>
-				</ul>			
-			</div>
+			<?php
+			if($lista == ''){
+				echo '<div class="alert alert-info">Não há registros cadastrados no momento.</diV>';
+			} else {
+			?>
+				<!-- Grid -->
+				<table class="table table-bordered">
+					<thead>
+						<tr class="table-title">
+							<th class="col-md-4">Nome</th>
+							<th class="col-md-2">Usuário</th>
+							<th class="col-md-2">Nível de Acesso</th>
+							<th class="col-md-1 text-center">Habilitado</th>
+							<th class="col-md-1 col-xs-2 text-center">::</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php echo $lista?>
+					</tbody>
+				</table>			
+				
+				<!-- Paginação -->
+				<div class="text-center col-md-12">
+					<ul class="pagination">
+						<?php echo $html_paginacao?>
+					</ul>			
+				</div>
+			<?php }?>
 			
 		</article>
 	

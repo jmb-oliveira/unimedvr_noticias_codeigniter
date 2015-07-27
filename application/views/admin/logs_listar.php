@@ -26,27 +26,33 @@
 		
 		<article>
 
-			<!-- Grid -->
-			<table class="table table-bordered">
-				<thead>
-					<tr class="table-title">
-						<th class="col-md-2 col-xs-3 text-center">Data</th>
-						<th class="col-md-2 col-xs-3 text-center">Usuário</th>
-						<th>Ação</th>						
-					</tr>
-				</thead>
-				<tbody>
-					<?php echo $lista?>
-				</tbody>
-			</table>			
 			
-			<!-- Paginação -->
-			<div class="text-center col-md-12">
-				<ul class="pagination">
-					<?php echo $html_paginacao?>
-				</ul>			
-			</div>
-			
+			<?php
+			if($lista == ''){
+				echo '<div class="alert alert-info">Não há registros cadastrados no momento.</diV>';
+			} else {
+			?>
+				<!-- Grid -->
+				<table class="table table-bordered">
+					<thead>
+						<tr class="table-title">
+							<th class="col-md-2 col-xs-3 text-center">Data</th>
+							<th class="col-md-2 col-xs-3 text-center">Usuário</th>
+							<th>Ação</th>						
+						</tr>
+					</thead>
+					<tbody>
+						<?php echo $lista?>
+					</tbody>
+				</table>			
+				
+				<!-- Paginação -->
+				<div class="text-center col-md-12">
+					<ul class="pagination">
+						<?php echo $html_paginacao?>
+					</ul>			
+				</div>
+			<?php }?>
 		</article>
 	
 	</section>
