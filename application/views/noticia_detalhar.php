@@ -30,12 +30,12 @@
 			<?php
 				// Galeria de imagens
 				if($imagens != ''){
-					echo '<div class="gallery"><h3>Galeria de Imagens</h3>'. $imagens .'</div><div class="both"></div><hr/>';
+					echo '<hr/><div class="gallery"><h3>Galeria de Imagens</h3>'. $imagens .'</div><div class="both"></div>';
 				}
 
 				// Video
 				if($embed_video != ''){
-					echo '<h3>Video</h3>'. $embed_video;
+					echo '<hr/><h3>Video</h3>'. $embed_video;
 				}
 			?>
 

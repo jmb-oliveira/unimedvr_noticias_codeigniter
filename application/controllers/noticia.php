@@ -45,7 +45,13 @@ class Noticia extends CI_Controller {
 		// Embed Video
 		$dados['embed_video'] = '';
 		if($noticia->video_url != ''){
-			$dados['embed_video'] = '<iframe width="560" height="315" src="'. $noticia->video_url .'" frameborder="0" allowfullscreen></iframe>';
+
+			$cod_video = (stripos($noticia->video_url, '?v=') !== false) ? explode('?v=', $noticia->video_url) : explode('/v/', $noticia->video_url);
+			$cod_video = end($cod_video);
+
+			$embed_url = 'https://www.youtube.com/embed/'. $cod_video;
+
+			$dados['embed_video'] = '<iframe width="560" height="315" src="'. $embed_url .'" frameborder="0" allowfullscreen></iframe>';
 		}			
 	
 		$dados['usuario'] = $this->_usuario;		

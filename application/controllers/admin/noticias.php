@@ -141,7 +141,7 @@ class Noticias extends CI_Controller {
 		$rules = array(
 				array('field' => 'titulo', 'rules' => 'required|sanitizeHTML|min_length[3]|max_length[200]'),
 				array('field' => 'texto', 'rules' => 'required|sanitizeHTML|min_length[3]'),
-				array('field' => 'video', 'rules' => 'valid_url'),
+				array('field' => 'video', 'rules' => 'callback_valid_youtube_url'),
 				array('field' => 'categoria', 'rules' => 'required|strtonumeric'),
 				array('field' => 'visivel_desktop', 'rules' => 'required|strtonumeric'),
 				array('field' => 'visivel_mobile', 'rules' => 'required|strtonumeric')			
@@ -253,7 +253,7 @@ class Noticias extends CI_Controller {
 		$rules = array(
 				array('field' => 'titulo', 'rules' => 'required|sanitizeHTML|min_length[3]|max_length[200]'),
 				array('field' => 'texto', 'rules' => 'required|sanitizeHTML|min_length[3]'),
-				array('field' => 'video', 'rules' => 'valid_url'),
+				array('field' => 'video', 'rules' => 'callback_valid_youtube_url'),
 				array('field' => 'categoria', 'rules' => 'required|strtonumeric'),
 				array('field' => 'visivel_desktop', 'rules' => 'required|strtonumeric'),
 				array('field' => 'visivel_mobile', 'rules' => 'required|strtonumeric')	
@@ -316,6 +316,19 @@ class Noticias extends CI_Controller {
 		}
 
 		redirect('admin/noticias', 'refresh');
+	}
+
+	/** CALLBACK FORM VALIDATION FUNCTIONS ------------------------------------------------- */	
+	function valid_youtube_url($str)
+	{
+		if($str != ''){
+			if(!preg_match('@^(?:(http|https)://(?:www\\.)?youtube.com/)(watch\\?v=|v/)([-a-zA-Z0-9_]*)@', $str)) {
+				$this->form_validation->set_message('valid_youtube_url', 'Informe uma url válida de video do Youtube.');
+				return FALSE;
+			}
+		}
+
+		return TRUE;
 	}
 
 	/** AJAX FUNCTIONS ------------------------------------------------- */	
