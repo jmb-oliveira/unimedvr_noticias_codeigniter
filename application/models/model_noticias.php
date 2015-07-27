@@ -8,11 +8,17 @@ class Model_noticias extends CI_Model
 		parent::__construct();
 	}
 	
-	function countNoticias($busca)
+	function countNoticias($busca, $is_mobile)
 	{		
 		$query = $this->db->join('unmd_categorias t2', 't1.id_categoria = t2.id_categoria', 'inner')
 						->where('t1.removed_on IS NULL')
 						->where('t2.removed_on IS NULL');
+
+		if($is_mobile){
+			$query->where('t1.visivel_mobile', 1);
+		} else {
+			$query->where('t1.visivel_desktop', 1);
+		}
 
 		if($busca != 'sem_busca')
 			$query->like('titulo', $busca);
@@ -21,14 +27,20 @@ class Model_noticias extends CI_Model
 
 		return $result;
 	}
-	function getNoticias($busca, $inicio, $offset)
+	function getNoticias($busca, $is_mobile, $inicio, $offset)
 	{
-		$query = $this->db->select(array('t1.id_noticia', 't1.titulo', 't1.texto', 't1.publicada_em'))
+		$query = $this->db->select(array('t1.id_noticia', 't1.titulo', 't1.texto', 't1.visivel_desktop', 't1.visivel_mobile', 't1.publicada_em'))
 						  ->from('unmd_noticias t1')
 						  ->join('unmd_categorias t2', 't1.id_categoria = t2.id_categoria', 'inner')
 				 		  ->where('t1.removed_on IS NULL')
 				 		  ->where('t2.removed_on IS NULL');						 
-			
+		
+		if($is_mobile){
+			$query->where('t1.visivel_mobile', 1);
+		} else {
+			$query->where('t1.visivel_desktop', 1);
+		}
+
 		if($busca != 'sem_busca')
 			$query->like('t1.titulo', $busca);
 

@@ -56,8 +56,26 @@ body > .container {
 		.hidden-510 {
 			display: none !important;
 		}
-	}	
-	
+	}
+
+	/*
+	========== Hidden 768 ==========
+	*/
+	@media (max-width: 768px) {
+		.hidden-768 {
+			display: none !important;
+		}
+	}
+
+
+	/*
+	========== Show 768 ==========
+	*/
+	@media (max-width: 768px) {
+		.show-768 {
+			display: block !important;
+		}
+	}
 
 	/* ============ TYPOGRAPH ============ */
 	
@@ -244,8 +262,7 @@ body > .container {
 		.navbar-default #mainmenu.navbar-nav > .open > a,
 		.navbar-default #mainmenu.navbar-nav > .open > a:hover,
 		.navbar-default #mainmenu.navbar-nav > .open > a:focus {
-		  color: #FFF;
-		  background-color: #204162;
+		  color: #FFF;		  
 		}
 		#mainmenu .dropdown > ul {
 			padding: 5px;

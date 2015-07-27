@@ -30,6 +30,8 @@ class Home extends CI_Controller {
 	function noticias($busca = 'sem_busca', $de_paginacao = '0')
 	{		
 		$this->load->helper('form');
+		$this->load->library('user_agent');
+		$is_mobile = $this->agent->is_mobile();
 		
 		if($this->input->post('busca'))
 			redirect('home/noticias/'.custom_urlencode(str_replace(array('%', "'"), array('', ''), $this->input->post('busca'))), 'refresh');		
@@ -45,7 +47,7 @@ class Home extends CI_Controller {
 		// Paginação
 		$busca_tratado = removeAcentos(custom_urldecode($busca));
 		$config_paginacao['base_url'] 	= site_url('home/noticias/'.$busca);
-		$config_paginacao['total_rows'] = $this->Model_noticias->countNoticias($busca_tratado);
+		$config_paginacao['total_rows'] = $this->Model_noticias->countNoticias($busca_tratado, $is_mobile);
 		$dados['total_rows'] = $config_paginacao['total_rows'];
 		$config_paginacao['per_page'] = 5;
 		$config_paginacao['uri_segment'] = 4;
@@ -67,7 +69,7 @@ class Home extends CI_Controller {
 	
 		// Listagem de dados
 		$dados['lista'] = '';
-		foreach($this->Model_noticias->getNoticias($busca_tratado, (int)$de_paginacao, $config_paginacao['per_page']) as $noticia)
+		foreach($this->Model_noticias->getNoticias($busca_tratado, $is_mobile, (int)$de_paginacao, $config_paginacao['per_page']) as $noticia)
 		{
 			$dados['lista'] .=
 						'<div class="news-box">
