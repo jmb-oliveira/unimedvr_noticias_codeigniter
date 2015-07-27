@@ -13,7 +13,12 @@ class Contas extends CI_Controller {
 		// Se o usuário não estiver logado, redireciona para o login.
 		$this->load->Model('admin/Model_login');
 		if(!$this->_usuario = $this->Model_login->getLogin()){
-			redirect('admin/login', 'refresh');			
+			redirect('admin/login', 'refresh');
+		}
+
+		// Acesso somente aos admins
+		if($this->_usuario->acesso < 2){
+			show_404();
 		}
 				
 		$this->load->Model('admin/Model_contas');

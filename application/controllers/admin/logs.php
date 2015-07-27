@@ -15,6 +15,11 @@ class Logs extends CI_Controller {
 		if(!$this->_usuario = $this->Model_login->getLogin()){
 			redirect('admin/login', 'refresh');			
 		}
+
+		// Acesso somente aos admins
+		if($this->_usuario->acesso < 2){
+			show_404();
+		}
 				
 		$this->load->Model('admin/Model_logs');
 	}
