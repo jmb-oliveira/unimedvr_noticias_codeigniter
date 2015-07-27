@@ -51,4 +51,14 @@ class Model_noticias extends CI_Model
 
 		return $result;
 	}
+
+	function getNoticia($id_noticia)
+	{
+		return $this->db->get_where('unmd_noticias', array('id_noticia' => $id_noticia))->row(0);
+	}
+
+	function getNoticiaImagens($id_noticia)
+	{
+		return $this->db->get_where('unmd_noticias_imagens', array('id_noticia' => $id_noticia))->result();
+	}
 }

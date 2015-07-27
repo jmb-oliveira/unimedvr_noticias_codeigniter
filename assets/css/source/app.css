@@ -411,6 +411,30 @@ body > .container {
 	}
 
 	/*
+	========== Galeria de imagens publica ==========
+	*/
+	.gallery {
+		margin-top: 30px;
+    	padding-top: 10px;
+	}
+
+	.gallery-item {
+		width: 150px;
+	    height: 150px;
+	    float: left;
+	    padding: 5px;
+	    margin: 10px 10px 10px 0;
+	    background: #FFF;
+	    border: 1px solid #CCC;
+	    border-radius: 3px;
+	}
+
+	.gallery-item img {
+		width: 100%;
+		height: 100%;
+	}
+
+	/*
 	========== Noticias Home ==========
 	*/
 	.news-box {
