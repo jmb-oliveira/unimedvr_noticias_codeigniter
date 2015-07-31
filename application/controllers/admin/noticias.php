@@ -96,9 +96,13 @@ class Noticias extends CI_Controller {
 			}
 	
 			$diretorio = 'uploads/noticias/temp/'.$this->input->post('time');
+			$thumb_dir = 'uploads/noticias/thumb';
 	
 			if(!is_dir($diretorio))
-				mkdir($diretorio);
+				mkdir($diretorio, 0777, TRUE);
+
+			if(!is_dir($thumb_dir))
+				mkdir($thumb_dir, 0777, TRUE);
 	
 			$img = $diretorio.'/'.uniqid().'.'.$extension;
 			if(move_uploaded_file($_FILES['upl']['tmp_name'], $img)){
@@ -207,10 +211,14 @@ class Noticias extends CI_Controller {
 				exit;
 			}
 	
-			$diretorio = 'uploads/noticias/temp/'.$this->input->post('time');
+			$diretorio = 'uploads/noticias/temp/'.$this->input->post('time');	
+			$thumb_dir = 'uploads/noticias/thumb';
 	
 			if(!is_dir($diretorio))
-				mkdir($diretorio);
+				mkdir($diretorio, 0777, TRUE);
+
+			if(!is_dir($thumb_dir))
+				mkdir($thumb_dir, 0777, TRUE);
 	
 			$img = $diretorio.'/'.uniqid().'.'.$extension;
 			if(move_uploaded_file($_FILES['upl']['tmp_name'], $img)){
